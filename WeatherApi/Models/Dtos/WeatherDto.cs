@@ -8,10 +8,10 @@ public class WeatherDto
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    public string? Description { get; set; }
+    public string? description { get; set; }
     
     /// <summary>
     /// Gets or sets the icon.
     /// </summary>
-    public string? Icon { get; set; }
+    public string? icon { get; set; }
 }

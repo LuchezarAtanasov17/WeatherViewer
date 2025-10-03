@@ -8,20 +8,20 @@ public class CurrentDto
     /// <summary>
     /// Gets or sets the temperature.
     /// </summary>
-    public double Temperature { get; set; }
+    public double temp { get; set; }
 
     /// <summary>
     /// Gets or sets the humidity.
     /// </summary>
-    public int Humidity { get; set; }
+    public int humidity { get; set; }
 
     /// <summary>
     /// Gets or sets the wind speed.
     /// </summary>
-    public double WindSpeed { get; set; }
+    public double wind_speed { get; set; }
 
     /// <summary>
     /// Gets or sets the weather.
     /// </summary>
-    public List<WeatherDto>? Weather { get; set; }
+    public List<WeatherDto>? weather { get; set; }
 }

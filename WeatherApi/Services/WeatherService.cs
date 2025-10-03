@@ -39,12 +39,12 @@ public class WeatherService(HttpClient httpClient, IConfiguration config)
 
         var weather = new Weather
         {
-            Temperature = openWeatherDto.Current?.Temperature ?? 0,
-            Description = openWeatherDto.Current?.Weather?[0].Description ?? "",
-            Icon = openWeatherDto.Current?.Weather?[0].Icon ?? "",
-            Humidity = openWeatherDto.Current?.Humidity ?? 0,
-            WindSpeed = openWeatherDto.Current?.WindSpeed ?? 0,
-            Timezone = openWeatherDto.Timezone ?? "",
+            Temperature = openWeatherDto.current?.temp ?? 0,
+            Description = openWeatherDto.current?.weather?[0].description ?? "",
+            Icon = openWeatherDto.current?.weather?[0].icon ?? "",
+            Humidity = openWeatherDto.current?.humidity ?? 0,
+            WindSpeed = openWeatherDto.current?.wind_speed ?? 0,
+            Timezone = openWeatherDto.timezone ?? "",
         };
 
         return weather;
