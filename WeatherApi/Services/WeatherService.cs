@@ -18,6 +18,9 @@ public class WeatherService(HttpClient httpClient, IConfiguration config)
     /// <inheritdoc/>
     public async Task<Weather> GetWeather(double lat, double lon)
     {
+        ArgumentNullException.ThrowIfNull(lat);
+        ArgumentNullException.ThrowIfNull(lon);
+
         var url = $"https://api.openweathermap.org/data/3.0/onecall?lat=42.6977&lon=23.3219&exclude=minutely,hourly,daily,alerts&units=metric&appid={_apiKey}";
         
         var response = await _httpClient.GetAsync(url);

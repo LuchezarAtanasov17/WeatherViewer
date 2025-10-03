@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using WeatherApi.Extensions;
 using WeatherApi.Models;
 using WeatherApi.Services;
 
@@ -11,7 +13,7 @@ namespace WeatherApi.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class WeatherController(IWeatherService weatherService) 
-    : Controller
+    : ControllerBase
 {
     private readonly IWeatherService _weatherService = weatherService;
 
@@ -41,14 +43,7 @@ public class WeatherController(IWeatherService weatherService)
         }
         catch (Exception ex)
         {
-            var problemDetails = new ProblemDetails
-            {
-                Status = StatusCodes.Status502BadGateway,
-                Title = "An error has occurred while getting weather.",
-                Detail = ex.Message,
-            };
-
-            return StatusCode(StatusCodes.Status502BadGateway, problemDetails);
+            return this.HandleException(ex, "An error has occurred while getting weather.");
         }
     }
 }

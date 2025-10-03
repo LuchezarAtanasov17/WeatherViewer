@@ -7,7 +7,7 @@ namespace WeatherApi.Controllers;
 /// </summary>
 [ApiController]
 [Route("[controller]")]
-public class HealthController : Controller
+public class HealthController : ControllerBase
 {
     /// <summary>
     /// Returns OK if the API is available.
