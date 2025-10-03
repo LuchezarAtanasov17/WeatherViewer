@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WeatherApi.Extensions;
 using WeatherApi.Models;
 using WeatherApi.Services;
@@ -12,7 +11,7 @@ namespace WeatherApi.Controllers;
 /// <param name="weatherService">the weather service</param>
 [ApiController]
 [Route("[controller]")]
-public class WeatherController(IWeatherService weatherService) 
+public class WeatherController(IWeatherService weatherService)
     : ControllerBase
 {
     private readonly IWeatherService _weatherService = weatherService;
@@ -22,13 +21,16 @@ public class WeatherController(IWeatherService weatherService)
     /// </summary>
     /// <param name="lat">the latitude</param>
     /// <param name="lon">the longitude</param>
+    /// <param name="excludeParts">the exclude parts</param>
     /// <returns>the weather</returns>
     [HttpGet]
     public async Task<IActionResult> GetWeather(
-        [FromQuery] 
+        [FromQuery]
         double lat,
-        [FromQuery] 
-        double lon)
+        [FromQuery]
+        double lon,
+        [FromQuery]
+        string[] excludeParts)
     {
         if (lat < -90 || lat > 90 || lon < -180 || lon > 180)
         {
@@ -37,7 +39,7 @@ public class WeatherController(IWeatherService weatherService)
 
         try
         {
-            Weather result = await _weatherService.GetWeather(lat, lon);
+            Weather result = await _weatherService.GetWeather(lat, lon, excludeParts);
 
             return Ok(result);
         }

@@ -16,13 +16,16 @@ public class WeatherService(HttpClient httpClient, IConfiguration config)
         = config["OpenWeather:ApiKey"] ?? throw new ArgumentNullException("API key not configured.");
 
     /// <inheritdoc/>
-    public async Task<Weather> GetWeather(double lat, double lon)
+    public async Task<Weather> GetWeather(double lat, double lon, string[] excludeArray)
     {
         ArgumentNullException.ThrowIfNull(lat);
         ArgumentNullException.ThrowIfNull(lon);
 
-        var url = $"https://api.openweathermap.org/data/3.0/onecall?lat=42.6977&lon=23.3219&exclude=minutely,hourly,daily,alerts&units=metric&appid={_apiKey}";
-        
+        string excludeParts = string.Join(',', excludeArray);
+
+        var url = $"https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}" +
+                $"&exclude={excludeParts}&appid={_apiKey}";
+
         var response = await _httpClient.GetAsync(url);
 
         if (!response.IsSuccessStatusCode)
