@@ -24,7 +24,7 @@ public class WeatherService(HttpClient httpClient, IConfiguration config)
         string excludeParts = string.Join(',', excludeArray);
 
         var url = $"https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}" +
-                $"&exclude={excludeParts}&appid={_apiKey}";
+                $"&exclude={excludeParts}&appid={_apiKey}&units=metric";
 
         var response = await _httpClient.GetAsync(url);
 
