@@ -1,0 +1,80 @@
+.weather-panel {
+  background: #dfdfdf;
+  color: #222;
+  padding: 1.5rem;
+  border-left: 1px solid #ccc;
+  width: 90%;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.weather-panel h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  color: #333;
+}
+
+.weather-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.description {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-top: 0.25rem;
+  color: #444;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.weather-details p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.weather-details span {
+  font-weight: 600;
+  color: #555;
+}
+
+.weather-panel.loading,
+.weather-panel.error,
+.weather-panel.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #555;
+}

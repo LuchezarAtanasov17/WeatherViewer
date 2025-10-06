@@ -1,0 +1,14 @@
+.map-container {
+  height: 100vh;
+  width: 75%;
+}
+
+.info-panel {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e9ecef;
+  border-left: 1px solid #ccc;
+  padding: 0;
+}
