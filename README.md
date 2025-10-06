@@ -15,7 +15,8 @@ The app displays current weather information based on location or map selection.
 1. Clone the repository.
 2. Open the solution in Visual Studio 2022 or run it from the terminal.
 3. Start the frontend.
-4. Build and run both applications.
+4. Run `npm install` inside the *frontend* folder.
+5. Build and run both applications.
 
 ## Feature improvements
 
